@@ -101,27 +101,30 @@
     .price-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      gap: 25px;
     }
     .category-card {
-      background: #fff;
       padding: 20px;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: 0.3s ease;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
     .category-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      color: #c9a36a;
       margin-bottom: 15px;
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+    .category-title i {
+      font-size: 1.5rem;
     }
     ul.price-list {
       list-style: none;
@@ -132,28 +135,23 @@
       display: flex;
       justify-content: space-between;
       padding: 8px 0;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
       position: relative;
     }
-    .tag {
-      background: #c92121;
-      color: #fff;
-      font-size: 0.85rem;
-      padding: 2px 8px;
-      border-radius: 12px;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
     .promo {
-      background: #ffe6e6;
-      color: #c92121;
+      background: rgba(255,255,255,0.3);
+      color: #fff;
       font-weight: bold;
       padding: 10px 15px;
       border-radius: 6px;
       margin: 15px 0;
       text-align: center;
     }
+
+    /* Цветные карточки */
+    .gynecology { background: #c92121; }
+    .cosmetology { background: #c9a36a; }
+    .ivtherapy { background: #007b7a; }
 
     /* Кнопка WhatsApp */
     .cta {
@@ -165,19 +163,16 @@
       text-decoration: none;
       font-weight: bold;
       margin-top: 15px;
+      transition: background 0.3s ease;
     }
-    .cta:hover {
-      background: #128C7E;
-    }
+    .cta:hover { background: #128C7E; }
 
     /* Контакты */
     .contact-link {
       color: #007b7a;
       text-decoration: none;
     }
-    .contact-link:hover {
-      text-decoration: underline;
-    }
+    .contact-link:hover { text-decoration: underline; }
 
     footer {
       text-align: center;
@@ -214,8 +209,8 @@
     <div class="doctor">
       <img src="doctor_photo.jpg" alt="Dr. Fatima Mukhtarkyzy">
       <div class="doctor-info">
-        <p>Dr. Фатима Мұхтарқызы — опытный гинеколог с более чем 22-летним стажем, который посвятила своей профессии заботе о женском здоровье и качестве жизни. За годы практики она помогла тысячам женщин справляться с любыми гинекологическими проблемами, сочетая надежную классическую медицину с современными эстетическими методиками.</p>
-        <p>Специализация: комплексное ведение женского здоровья — диагностика и лечение всех гинекологических заболеваний, помощь при недержании мочи, восстановление интимного здоровья и улучшение качества сексуальной жизни. Каждая пациентка получает индивидуальный подход для максимально комфортного и эффективного лечения.</p>
+        <p>Dr. Фатима Мұхтарқызы — опытный гинеколог с более чем 22-летним стажем, посвятившая свою профессию заботе о женском здоровье и качестве жизни. За годы практики она помогла тысячам женщин, сочетая надежную классическую медицину с современными эстетическими методиками.</p>
+        <p>Специализация: комплексное ведение женского здоровья — диагностика и лечение всех гинекологических заболеваний, помощь при недержании мочи, восстановление интимного здоровья и улучшение качества сексуальной жизни. Каждая пациентка получает индивидуальный подход для максимального комфорта.</p>
         <h3>Услуги:</h3>
         <ul class="services">
           <li>Лазерное сужение влагалища</li>
@@ -235,8 +230,8 @@
   <div class="section-card">
     <h2>Гинекология</h2>
     <div class="price-grid">
-      <div class="category-card">
-        <div class="category-title">🩺 Гинекология</div>
+      <div class="category-card gynecology">
+        <div class="category-title"><i>🩺</i> Гинекология</div>
         <div class="promo">АКЦИЯ! CO2 лазер + Плазмолифтинг + Плазма Гель + Филлеры — Скидка 50 000 тг</div>
         <ul class="price-list">
           <li>Плазмолифтинг + Плазма Гель (4 пробирки)<span>25 000 тг</span></li>
@@ -256,18 +251,43 @@
   <div class="section-card">
     <h2>Косметология</h2>
     <div class="price-grid">
-      <div class="category-card">
-        <div class="category-title">💆‍♀️ Косметология</div>
+      <div class="category-card cosmetology">
+        <div class="category-title"><i>💆‍♀️</i> Косметология</div>
         <ul class="price-list">
+          <!-- Биоревитализация -->
+          <li><strong>Биоревитализация (увлажнение кожи)</strong></li>
           <li>Aqua Exosome — 12 000 тг</li>
           <li>Hyaron — 10 000 тг</li>
           <li>Kiara Reju — 20 000 тг</li>
           <li>Aquashine — 45 000 тг</li>
+          <li>Rejuran — 65 000 тг</li>
+          <li>Rejuran Healer — 90 000 тг</li>
+          <li>Jalupro (синий) — 48 000 тг</li>
+          <li>Curenex — 18 000 тг</li>
+          <li>PN Pro — 35 000 тг</li>
+          <li>NAD + PDRN — 25 000 тг</li>
+          <li>Cindella Healer — 55 000 тг</li>
+
+          <!-- Вокруг глаз -->
+          <li><strong>Биоревитализация вокруг глаз</strong></li>
           <li>Ami Eyes — 23 000 тг</li>
           <li>Illuma Eyes — 23 000 тг</li>
+
+          <!-- Осветление кожи -->
+          <li><strong>Осветление кожи</strong></li>
+          <li>Ultra White Active — 25 000 тг</li>
+          <li>Glutanhyall W-Action — 25 000 тг</li>
+
+          <!-- Акне-терапия -->
+          <li><strong>Акне-терапия</strong></li>
+          <li>Acne Retinol — 25 000 тг</li>
+          <li>Мэлсмон — 14 000 тг</li>
+
+          <!-- Мезотерапия -->
+          <li><strong>Мезотерапия</strong></li>
           <li>Dermaheal — 15 000 тг</li>
-          <li>Мезотерапия + Биоревитализация — 22 000 тг</li>
-          <li>Плазма + Биоревитализация — 22 000 тг</li>
+          <li>Мезотерапия + биоревитализация — 22 000 тг</li>
+          <li>Плазма + биоревитализация — 22 000 тг</li>
         </ul>
       </div>
     </div>
@@ -279,15 +299,29 @@
   <div class="section-card">
     <h2>IV-терапия</h2>
     <div class="price-grid">
-      <div class="category-card">
-        <div class="category-title">💉 IV-терапия</div>
+      <div class="category-card ivtherapy">
+        <div class="category-title"><i>💉</i> IV-терапия</div>
         <ul class="price-list">
-          <li>Золушка <span>12 000 тг</span></li>
-          <li>Мужская капельница <span>12 000 тг</span></li>
-          <li>Похудейка <span>12 000 тг</span></li>
-          <li>Мультивита <span>10 000 тг</span></li>
-          <li>Lipo Lab (лицо) <span>15 000 тг</span></li>
-          <li>Lipo Lab (тело) <span>12 000 тг</span></li>
+          <!-- Капельницы -->
+          <li><strong>Капельницы</strong></li>
+          <li>Золушка — 12 000 тг</li>
+          <li>Мужская капельница — 12 000 тг</li>
+          <li>Похудейка — 12 000 тг</li>
+          <li>Мультивита — 10 000 тг</li>
+          <li>Чесночная — 10 000 тг</li>
+          <li>Коктейль Майерса — 15 000 тг</li>
+          <li>Гингко Билоба — 12 000 тг</li>
+          <li>Железо — 15 000 тг</li>
+          <li>Витамин D — 14 000 тг</li>
+          <li>Detox — 10 000 тг</li>
+          <li>Лаеннек — 15 000 тг</li>
+          <li>Витамин C — 10 000 тг</li>
+          <li>Максиблю — 10 000 тг</li>
+
+          <!-- Липолитики -->
+          <li><strong>Липолитики</strong></li>
+          <li>Lipo Lab (лицо) — 15 000 тг</li>
+          <li>Lipo Lab (тело) — 12 000 тг</li>
         </ul>
       </div>
     </div>
